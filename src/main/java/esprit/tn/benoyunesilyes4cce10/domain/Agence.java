@@ -1,32 +1,34 @@
 package esprit.tn.benoyunesilyes4cce10.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "agence")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Agence {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgence;
-
-    @Column(nullable = false, length = 100)
     private String nom;
-
-    @Column(nullable = false, length = 50)
     private String ville;
-
-    @Column(nullable = false, length = 150)
     private String adresse;
-
-    @Column(length = 20)
     private String telephone;
+
+    @OneToMany(mappedBy = "agence")
+    private List<Employe> employes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "agence")
+    private List<Vehicule> vehicules = new ArrayList<>();
+
+    public Agence() {}
+
+    public void addEmploye(Employe e) { employes.add(e); e.setAgence(this); }
+    public void removeEmploye(Employe e) { employes.remove(e); e.setAgence(null); }
+    public void addVehicule(Vehicule v) { vehicules.add(v); v.setAgence(this); }
+    public void removeVehicule(Vehicule v) { vehicules.remove(v); v.setAgence(null); }
+
+    public List<Employe> getEmployes() { return employes; }
+    public void setEmployes(List<Employe> employes) { this.employes = employes; }
+    public List<Vehicule> getVehicules() { return vehicules; }
+    public void setVehicules(List<Vehicule> vehicules) { this.vehicules = vehicules; }
+    // getters/setters des attributs simples (Atelier 1)
 }
