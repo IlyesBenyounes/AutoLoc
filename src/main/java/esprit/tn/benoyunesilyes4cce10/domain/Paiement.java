@@ -3,8 +3,12 @@ package esprit.tn.benoyunesilyes4cce10.domain;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Paiement {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaiement;
@@ -19,8 +23,4 @@ public class Paiement {
     private Contrat contrat;
 
     public Paiement() {}
-
-    public Contrat getContrat() { return contrat; }
-    public void setContrat(Contrat contrat) { this.contrat = contrat; }
-    // getters/setters des attributs simples (Atelier 1)
 }

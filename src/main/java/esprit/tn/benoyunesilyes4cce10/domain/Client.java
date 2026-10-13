@@ -2,10 +2,14 @@ package esprit.tn.benoyunesilyes4cce10.domain;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Client {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
@@ -17,13 +21,9 @@ public class Client {
     private LocalDate dateInscription;
 
     @OneToMany(mappedBy = "client")
-    private List<Reservation> reservations = new ArrayList<>();
+    private Set<Reservation> reservations = new HashSet<>();
 
     public Client() {}
 
     public void addReservation(Reservation r) { reservations.add(r); r.setClient(this); }
-
-    public List<Reservation> getReservations() { return reservations; }
-    public void setReservations(List<Reservation> reservations) { this.reservations = reservations; }
-    // getters/setters des attributs simples (Atelier 1)
 }

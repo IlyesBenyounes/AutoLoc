@@ -1,10 +1,14 @@
 package esprit.tn.benoyunesilyes4cce10.domain;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Agence {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgence;
@@ -14,10 +18,10 @@ public class Agence {
     private String telephone;
 
     @OneToMany(mappedBy = "agence")
-    private List<Employe> employes = new ArrayList<>();
+    private Set<Employe> employes = new HashSet<>();
 
     @OneToMany(mappedBy = "agence")
-    private List<Vehicule> vehicules = new ArrayList<>();
+    private Set<Vehicule> vehicules = new HashSet<>();
 
     public Agence() {}
 
@@ -25,10 +29,4 @@ public class Agence {
     public void removeEmploye(Employe e) { employes.remove(e); e.setAgence(null); }
     public void addVehicule(Vehicule v) { vehicules.add(v); v.setAgence(this); }
     public void removeVehicule(Vehicule v) { vehicules.remove(v); v.setAgence(null); }
-
-    public List<Employe> getEmployes() { return employes; }
-    public void setEmployes(List<Employe> employes) { this.employes = employes; }
-    public List<Vehicule> getVehicules() { return vehicules; }
-    public void setVehicules(List<Vehicule> vehicules) { this.vehicules = vehicules; }
-    // getters/setters des attributs simples (Atelier 1)
 }
