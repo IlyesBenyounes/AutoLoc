@@ -4,9 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Agence;
 
 public interface IAgenceService {
-    Agence create(Agence agence);
-    Agence findById(Long id);
-    List<Agence> findAll();
-    Agence update(Long id, Agence agence);
-    void deleteById(Long id);
+    Agence add(Agence agence);
+    List<Agence> getAll();
+    Agence getById(Long id);
+    Agence update(Agence agence);
+    void delete(Long id);
 }

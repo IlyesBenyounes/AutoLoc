@@ -4,9 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Client;
 
 public interface IClientService {
-    Client create(Client client);
-    Client findById(Long id);
-    List<Client> findAll();
-    Client update(Long id, Client client);
-    void deleteById(Long id);
+    Client add(Client client);
+    List<Client> getAll();
+    Client getById(Long id);
+    Client update(Client client);
+    void delete(Long id);
 }

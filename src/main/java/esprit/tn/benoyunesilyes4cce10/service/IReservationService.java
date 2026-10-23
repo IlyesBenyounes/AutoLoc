@@ -4,9 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Reservation;
 
 public interface IReservationService {
-    Reservation create(Reservation reservation);
-    Reservation findById(Long id);
-    List<Reservation> findAll();
-    Reservation update(Long id, Reservation reservation);
-    void deleteById(Long id);
+    Reservation add(Reservation reservation);
+    List<Reservation> getAll();
+    Reservation getById(Long id);
+    Reservation update(Reservation reservation);
+    void delete(Long id);
 }

@@ -4,9 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Maintenance;
 
 public interface IMaintenanceService {
-    Maintenance create(Maintenance maintenance);
-    Maintenance findById(Long id);
-    List<Maintenance> findAll();
-    Maintenance update(Long id, Maintenance maintenance);
-    void deleteById(Long id);
+    Maintenance add(Maintenance maintenance);
+    List<Maintenance> getAll();
+    Maintenance getById(Long id);
+    Maintenance update(Maintenance maintenance);
+    void delete(Long id);
 }

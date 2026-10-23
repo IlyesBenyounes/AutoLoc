@@ -1,0 +1,6 @@
+$kind: http-request
+name: " http://localhost:8081/autoloc/api/vehicules"
+description: ""
+url: " http://localhost:8081/autoloc/api/vehicules/"
+method: DELETE
+order: 2000

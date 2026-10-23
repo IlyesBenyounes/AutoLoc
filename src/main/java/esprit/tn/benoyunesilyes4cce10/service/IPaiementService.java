@@ -4,6 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Paiement;
 
 public interface IPaiementService {
-    Paiement findById(Long id);
-    List<Paiement> findAll();
+    Paiement add(Paiement paiement);
+    List<Paiement> getAll();
+    Paiement getById(Long id);
+    Paiement update(Paiement paiement);
+    void delete(Long id);
 }

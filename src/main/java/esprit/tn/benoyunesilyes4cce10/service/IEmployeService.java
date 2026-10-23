@@ -4,9 +4,9 @@ import java.util.List;
 import esprit.tn.benoyunesilyes4cce10.domain.Employe;
 
 public interface IEmployeService {
-    Employe create(Employe employe);
-    Employe findById(Long id);
-    List<Employe> findAll();
-    Employe update(Long id, Employe employe);
-    void deleteById(Long id);
+    Employe add(Employe employe);
+    List<Employe> getAll();
+    Employe getById(Long id);
+    Employe update(Employe employe);
+    void delete(Long id);
 }

@@ -1,0 +1,9 @@
+$kind: http-request
+name: http://localhost:8081/autoloc/api/vehicules
+description: ""
+url: http://localhost:8081/autoloc/api/vehicules
+method: POST
+body:
+  type: json
+  content: '{"immatriculation":"123 TUN 4567","marque":"Peugeot","modele":"208","categorie":"CITADINE","tarifJournalier":85.5,"statut":"DISPONIBLE","agenceId":1,"equipementIds":[1]}'
+order: 1000
